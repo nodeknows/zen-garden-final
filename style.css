@@ -1,0 +1,325 @@
+/* Empty file for template. Remember to edit only this file and not the HTML file */
+
+/* Color pallete: #cf754f #e0c8b9 #5e443f #435450 #1f1c24 */
+/* https://coolors.co/cf754f-e0c8b9-5e443f-435450-1f1c24 */
+
+@font-face {
+    font-family: Ruthie-Regular;
+    src: url(fonts/Ruthie-Regular.ttf);
+}
+
+@font-face {
+    font-family: CursiveSans-Book;
+    src: url(fonts/CursiveSans-Book.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* scrollbar edits */
+::-webkit-scrollbar {
+    width: .6vw;
+}
+
+::-webkit-scrollbar-track {
+    background: #E0C8B9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1F1C24;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5E443F;
+}
+
+/* body stuff */
+body {
+    font-family: CursiveSans-Book;
+    font-size: 1.2rem;
+    background-color: #e0c8b9;
+    color: #5e443f;
+
+    overflow-x: hidden;
+}
+
+
+/* that beautiful koi fish */
+body::after {
+    /* koi_1.png */
+    content: '';
+
+    position: absolute;
+    left: 22vw;
+    top: -22vh;
+
+    width: 55vw;
+    height: 70vh;
+
+    background-image: url('imgs/koi_1.png');
+    background-position: center top 70%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+body::before {
+    /* bg_2.jpg */
+    content: '';
+    display: inline-block;
+
+    position: fixed;
+    right: 0;
+
+    width: 100vw;
+    height: 125vh;
+
+    background-attachment: fixed;
+
+    background-image: url('imgs/bg_1.jpg');
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+    filter: brightness(.75);
+
+    animation: shake 3s infinite alternate;
+    animation-timing-function: ease-in-out;
+}
+
+/* our background moving up & down */
+@keyframes shake {
+    100% {
+        transform: translateY(-2vh)
+    }
+}
+
+/* link coloring stuff */
+a {
+    color: whitesmoke;
+}
+
+a:active {
+    color: #1F1C24
+}
+
+a:visited {
+    color: #b9c5e0;
+}
+
+/* make our main contents into a flexbox */
+.page-wrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 5vh;
+}
+
+/* paragraph and non-classed items padding */
+.requirements p:nth-of-type(5),
+.supporting footer {
+    font-size: .8em;
+}
+
+.requirements p:nth-of-type(5) {
+    padding: 1rem 0 .5rem;
+}
+
+p:not(:first-of-type) {
+    padding-top: 2%;
+}
+
+p {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* setting .intro & .supporting */
+.intro,
+.supporting {
+    position: relative;
+    overflow: hidden;
+    width: 50vw;
+    background-color: #cf754fcd;
+    padding: 1%;
+    border: .2rem solid #435450;
+    border-top-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+    transition: box-shadow .3s;
+}
+
+.intro::before,
+.supporting::before {
+    /* header.png TOP */
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 100vw;
+    height: 101%;
+
+    transform: scaleY(-1);
+
+    background-attachment: scroll;
+    background-image: url('imgs/header.png');
+    background-position: 0 bottom;
+    background-size: 50vw 20vh;
+    background-repeat: no-repeat;
+}
+
+.intro::after,
+.supporting::after {
+    /* header.png BOTTOM */
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 100vw;
+    height: 101%;
+
+    background-attachment: scroll;
+    background-image: url('imgs/header.png');
+    background-position: 0 bottom;
+    background-size: 50vw 20vh;
+    background-repeat: no-repeat;
+}
+
+/* intro-specific stuff */
+.intro {
+    margin-top: 1%;
+}
+
+.intro>header>h1::before {
+    content: ' ⁌ ';
+}
+
+.intro>header>h1::after {
+    content: ' ⁍ ';
+}
+
+/* road to enlightenment specific margin */
+.preamble {
+    margin-top: 3vh;
+}
+
+/* item glow on hover! */
+.intro:hover,
+.supporting:hover,
+.sidebar:hover {
+    box-shadow: 0 0 1rem .5rem whitesmoke;
+}
+
+.intro:not(hover),
+.supporting:not(hover),
+.sidebar:not(hover) {
+    box-shadow: 0 0 .5rem -.5rem whitesmoke
+}
+
+/* resizing our text in our intro/supporting */
+h1 {
+    letter-spacing: 1rem;
+    width: 85%;
+
+    font-size: 3.4rem;
+    font-family: Ruthie-Regular;
+    font-weight: lighter;
+
+    margin-top: 33vh;
+    margin-bottom: 1vh;
+
+    padding-bottom: 1%;
+
+    border-bottom: .2rem solid #5e443f;
+    border-image: linear-gradient(to right, #5e443f 50%, rgba(0, 0, 0, 0)) 1;
+}
+
+h2,
+h3 {
+    letter-spacing: .2rem;
+    font-size: 2rem;
+    font-family: Ruthie-Regular;
+}
+
+
+/* supporting specific stuff */
+.supporting {
+    margin-top: 1vh;
+    margin-bottom: 1%;
+}
+
+.supporting>div:not(:first-child) {
+    /* all divs NOT the first child; for clarity */
+    margin-top: 3vh;
+}
+
+/* customize our sizebar and position */
+.sidebar {
+    position: fixed;
+    bottom: 5vh;
+    left: -19vw;
+
+    opacity: .8;
+    width: 20vw;
+    height: 50vh;
+
+    background: #435450;
+    color: #E0C8B9;
+
+    padding: 1% 3% 1% 3%;
+    border: .2rem solid #E0C8B9;
+    border-top-left-radius: 1rem;
+
+    overflow-y: overlay;
+    overflow-x: hidden;
+
+    transition: transform 1s, box-shadow .5s;
+}
+
+/* sidebar-specific text */
+.sidebar h3 {
+    font-size: 1.5rem;
+}
+
+.sidebar nav {
+    padding-bottom: 3vh;
+}
+
+/* animate our sidebar */
+.sidebar:hover {
+    transform: translateX(100%);
+}
+
+.sidebar:not(hover) {
+    transform: translateX(0%);
+}
+
+/* sidebar branches */
+.sidebar::after {
+    /* branches.png */
+    content: '';
+    z-index: -1;
+
+    position: absolute;
+
+    width: 15vw;
+    height: 30vh;
+
+    top: 0;
+    left: -8vh;
+
+    transform: scaleY(-1);
+
+    background-image: url('imgs/branches.png');
+    background-position: center top 70%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
